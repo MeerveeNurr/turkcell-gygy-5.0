@@ -24,7 +24,12 @@ public class Main {
           String age="25"; //char tek tırnaktır,metinsel veri çift tırnaktır.Bazı diller ikisi de olacak şekilde kullanır.Ama javada bu özgürlük yok.
           boolean isStudent=true;
           char grade='A';
+           String name3=name.concat("abc");
+           System.out.println(name3);
+          // String immutable(değiştirilemez) bir yapıya sahiptir.
+          //concat() gibi metotlar yeni bir string oluşturur, mevcut stringi değiştirmez.
 
+          
           //Diziler(Arrays)
           String[] names={"Merve","Ahmet","Ayşe"};
           System.out.println(names); //Arrayi direkt konsola yazdırmak demek o ararayin referansını yazdırmak demektir.
@@ -112,6 +117,62 @@ public class Main {
         System.out.println("While çalıştı.");
         whileDongusu++;
     }
-    // System.out.println("Bu satır hata verecektir çünkü scope dışında kaldı.");
+
+    // Karar Blokları & Döngüler
+// Belirli 1+ kapsamdaki kod bloklarını belirli koşullara göre ateşlemek.
+// Karar bloğu minimum 1 maksimum n adet karara göre farklı kodlar çalıştırabilir.
+// Koşul: true-false
+
+/* if (1==1){
+    // burası her zaman çalışır çünkü koşul true olacak buna dead kod denir.
+} */ 
+//Her koşul yalnızca maksimum bir scope çalıştırır.
+     int age2=18;
+     // Eğer if döngüsü >= 18 olsaydı kodlar yukarıdan aşağıya çalıştığı için ilk if bloğu çalışır ve diğer bloklara bakılmazdı.Çıktı Yetki verildi olurdu.Yani hata vermezdi.
+     if(age2>18){
+      System.out.println("Yetki verildi.");
+     }
+     // eğer else if yerine if olsaydı iki farklı if bloğu olduğu içiin çıktı hem yetki verildi hem de yaşınız tam 18,ay kontolü yapılıyor olurdu.
+     else if(age2==18){
+        System.out.println("Yaşınız tam 18,ay kontolü yapılıyor...");
+     }
+     else {
+    System.out.println("Yetki verilmedi.");
 }
-} //Main classının kapsama alanı(sınır)
+
+     String username="Merve";
+     if(username.equals("Nur")){ //Equals() metodu stringlerin içeriğini karşılaştırır.
+        System.out.println("Hoşgeldin Nur");
+     } //Karar blokları illaki bir scopu çalıştırma zorunluluğu barındırmaz.
+    
+     calculateGrade(85, "Merve");
+     calculateGrade(70, "Ahmet");
+     calculateGrade(50, "Ayşe");
+     calculateGrade(30, "Fatma");
+    }//Main classının kapsama alanı(sınır)  
+    // System.out.println("Bu satır hata verecektir çünkü scope dışında kaldı.");
+
+    //Methodlar=> Belirli bir işi yapan kod bloklarıdır. Methodlar sayesinde kod tekrarından kurtuluruz, kodlarımız daha okunabilir ve bakımı kolay olur. Methodlar parametre alabilir ve geriye değer döndürebilirler.
+
+//erişim belirteci-static veya boş dönüş tipi(void->boş)-method ismi -(parametreler) -{}
+//Bir parametre tanımlıysa null bile olsa göndermek zorundasın.
+ public static void calculateGrade(int grade, String name){ //required parametre(zorunlu)
+    if(grade>=90){
+        System.out.println("Notunuz: A"+" "+name);
+    } else if(grade>=80){
+        System.out.println("Notunuz: B"+" "+name);
+    } else if(grade>=70){
+        System.out.println("Notunuz: C"+" "+name);
+    } else if(grade>=60){
+        System.out.println("Notunuz: D"+" "+name);
+    } else {
+        System.out.println("Notunuz: F"+" "+name);
+    }
+}
+    //Name gönderilemezse öğrenci varsayılan değer alsın.
+    //Method Overloading = Aynı isimde farklı parametre sayısına sahip metodlar oluşturma
+
+    public static void calculateGrade(int grade) {
+        calculateGrade(grade, "Öğrenci");
+    }
+}

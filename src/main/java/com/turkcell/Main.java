@@ -149,9 +149,14 @@ public class Main {
      calculateGrade(70, "Ahmet");
      calculateGrade(50, "Ayşe");
      calculateGrade(30, "Fatma");
-    }//Main classının kapsama alanı(sınır)  
-    // System.out.println("Bu satır hata verecektir çünkü scope dışında kaldı.");
 
+    double toplam1= sum(10.5,21.4);
+    System.out.println(toplam1);
+    double toplam2=sum(1,2,3,4,7);
+    System.out.println(toplam2);
+    }//Main classının kapsama alanı(sınır)  
+    
+    // System.out.println("Bu satır hata verecektir çünkü scope dışında kaldı.");
     //Methodlar=> Belirli bir işi yapan kod bloklarıdır. Methodlar sayesinde kod tekrarından kurtuluruz, kodlarımız daha okunabilir ve bakımı kolay olur. Methodlar parametre alabilir ve geriye değer döndürebilirler.
 
 //erişim belirteci-static veya boş dönüş tipi(void->boş)-method ismi -(parametreler) -{}
@@ -171,8 +176,18 @@ public class Main {
 }
     //Name gönderilemezse öğrenci varsayılan değer alsın.
     //Method Overloading = Aynı isimde farklı parametre sayısına sahip metodlar oluşturma
-
-    public static void calculateGrade(int grade) {
+    public static void calculateGrade(int grade) { 
         calculateGrade(grade, "Öğrenci");
+    }
+     public static double sum(double a,double b){
+        return a+b;
+    }
+     public static double sum(double...numbers){ // varargs olarak geçer,istenildiği kadar sayı yazılırsa yazılsın o işlemi yapar.bazı dillerde süper operatör olarak geçer. satır155
+        double total=0;
+        for(double num:numbers){
+            total+=num;
+        }
+        return total;
+
     }
 }

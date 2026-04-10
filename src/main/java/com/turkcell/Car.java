@@ -33,6 +33,13 @@ public class Car extends Vehicle
         //Değerlerini al,referansını alma
         //clone referans tipler için kullanılır.
     }
+     // Değerlerini al, referansı alma.
+    public boolean isHasSunroof() {
+        return hasSunroof;
+    }
+    public void setHasSunroof(boolean hasSunroof) {
+        this.hasSunroof = hasSunroof;
+    }
     //Read-only write-only
     //ör get metodunu kaldırırsam bu alanı okuyamam ama yazma işlemi yapabilirim. set için de tam tersi.
       //setter methodu->değer atama işlemi yapar.
@@ -40,6 +47,25 @@ public class Car extends Vehicle
      //getter methodu->değer okuma işlemi yapar.Değeri geri dönme işlemi
 
      // kısayol : sağ tıkla->source action->generate getter and setter yapmak istediğin alanları seç.
+
+   //Constructor->yapıcı metot -- Yazmasanız bile bir tane var.
+   //Ama yazarsak Auto olanı override etmiş (ezmiş ) oluruz.
+
+   //subclass- superclass
+   //subclass ->kalıtımı alan extended eden classdır.
+   //superclass->kalıtım alınan ortak özelliklerin olduğu classtır.
+   public Car (boolean hasSunroof,String brand){ //Dönüş metotu belirtmeden
+    // 1. SIRADA OLMALI: Önce üst sınıf (Vehicle) hazır hale gelir Java 21 ile alakalı
+     super(); //Vehicle classının constructor'ını da çağırır. Kalıtım aldığım classın constructor'ını çağırmak için kullanılı
+    System.out.println("Car constructor'u çalıştı");
+    this.hasSunroof=hasSunroof;
+    super.setBrand(brand);
+
+      //Super->Vehicle classını (Kalıtım aldığım classı)
+   }
+   public Car(){ 
+   }
+   //Constructor'un en çok kullanım amacı; nesne direkt üretilirken özelliklerini set etmek sonrasında , her satırda tek tek çağırma ihtiyacı yerine bir seferde set edebilmek.
 
 
 }

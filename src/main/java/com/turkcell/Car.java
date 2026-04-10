@@ -64,6 +64,8 @@ public class Car extends Vehicle
       //Super->Vehicle classını (Kalıtım aldığım classı)
    }
    public Car(){ 
+
+    
    }
    //Constructor'un en çok kullanım amacı; nesne direkt üretilirken özelliklerini set etmek sonrasında , her satırda tek tek çağırma ihtiyacı yerine bir seferde set edebilmek.
 

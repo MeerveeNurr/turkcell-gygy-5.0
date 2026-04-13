@@ -74,7 +74,39 @@ Ayrıca SEO ve sayfa ayarları için kullanılan meta etiketleri de burada bulun
 
 ![TanımListeleriÖrneği](ss8.png)
 
+**HTML `<div>` Öğesi**
 
+**`<div>` (division/bölüm) etiketi, web sayfalarının iskeletini ve düzenini oluşturan en temel yapı taşıdır.`<div>` öğesi, diğer HTML öğeleri için bir kapsayıcı görevi görür. Bir web sayfasının bölümlerini bir araya getirmek için kullanılır.Aynı sayfada birden fazla `<div>` öğesi bulunabilir.
+
+![DivÖrneği](ss9.png)
+
+## Modern HTML Özeti
+
+###  Form Yapıları ve Veri Girişi
+
+* **`<form>`**: HTML’de `<form>` etiketi, kullanıcıyla etkileşimli veri girişlerinin oluşturulmasında temel unsurdur. Bu etiket sayesinde kullanıcıların çeşitli bilgiler girmesi sağlanır ve sunucuya iletilecek verilerin toplanması kolaylaşır.
+
+*Formlar, kullanıcıların web sayfasıyla etkileşim kurmasını sağlayan önemli bölümlerdir ve bu etkileşimleri gerçekleştirmek için çeşitli HTML elementleri kullanılır.*
+
+* **`<input>`**: Bu etiket, kullanıcıdan farklı türde bilgiler alınması amacıyla en sık kullanılan öğedir.
+* **`<textarea>` & `<button>`**: Uzun metinler ve işlem tetikleyiciler içindir.
+* **`<select>` & `<option>`**: Kullanıcıya düzenli bir seçim listesi sunar.
+
+###  HTML5 ve Semantik Etiketler
+
+*Semantik etiketler, HTML’nin yapısal ve anlamsal anlamda içeriği daha düzenli ve erişilebilir hale getiren önemli araçlardır. Bu etiketler, belgenin bölümlerini tanımlayarak içeriklerin anlamını belirginleştirir ve arama motorlarının içeriği daha iyi anlamasını sağlar.*
+
+* **`<header>` / `<footer>`**:  `<header>` etiketi, sayfanın veya bölümün başlangıç kısmını temsil eder ve genellikle logo, navigasyon menüsü veya başlık gibi içerikleri barındırır.`<footer>` etiketi ise sayfanın veya belirli bölümün sonunu belirler ve genellikle telif hakkı bilgileri, iletişim detayları veya ek navigasyon içerir. Kullanıcıların sayfa hakkında genel bilgiler veya bağlantıları hızlıca bulmasını sağlar. 
+
+* **`<article>` / `<section>`**:  `<article>` etiketi, bağımsız ve kendi içinde anlam taşıyan içerik bloklarını ifade eder. Haber makaleleri, blog yazıları veya ürün detayları gibi içeriklerde tercih edilir. `<section>` etiketi ise, içerik içerisinde belirli konuları veya bölümleri ayırmak amacıyla kullanılır. 
+
+
+###  Multimedya Etiketleri
+* **`<audio>` & `<video>`**: HTML’de multimedya içeriği sunmak için kullanılan temel etiketler arasında `<audio>` ve `<video>` bulunur. 
+`<audio>` etiketi, ses dosyalarının yerleştirilmesi ve kontrol edilmesi amacıyla kullanılırken, `<video>` etiketi görsel ve işitsel içeriğin birlikte gösterilmesini sağlar. Her iki etiket de tarayıcılar tarafından yerel olarak desteklenen çeşitli medya formatlarını kullanabilir ve kullanıcılara medya oynatıcı kontrolleri sunar. 
+
+
+### Özetle doğru kurgulanmış bir HTML yapısı; arama motorları için **anlaşılır**, engelli bireyler için **erişilebilir** ve son kullanıcı için **hızlı** bir deneyim demektir.
 
 
 

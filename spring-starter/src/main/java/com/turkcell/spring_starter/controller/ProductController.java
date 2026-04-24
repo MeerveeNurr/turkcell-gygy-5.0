@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turkcell.spring_starter.dto.ProductCreatedResponse;
 import com.turkcell.spring_starter.dto.ProductForCreateDto;
 import com.turkcell.spring_starter.model.Product;
+import com.turkcell.spring_starter.service.ProductServiceImpl;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
@@ -48,7 +52,7 @@ public class ProductController {
       // post ve put için request body'den gelen veriyi java objesine çevirmek için @RequestBody kullanılır.Çünkü ürünün tüm bilgilerine ihtiyacımız var.
       //get ve dekete için id'ye göre işlem yapacağımız için @PathVariable kullanılır.Çünkü id'ye göre işlem yapacağız.sadece id'ye ihtiyacımız var.
 
-      private List<Product> productList= new ArrayList<>();
+      /*private List<Product> productList= new ArrayList<>();
 
       @GetMapping
       public List<Product> getAllProducts(){ //Bütün ürünleri listele
@@ -104,7 +108,18 @@ public class ProductController {
       public void deleteProduct(@PathVariable int id){ //Id'ye göre ürün sil
        
         //Hoca ile sonra bakılacak
-      }
+      }*/ 
+     //private final ProductServiceImpl productServiceImpl = new ProductServiceImpl();
+    private final ProductServiceImpl productServiceImpl;
+
+    public ProductController(ProductServiceImpl productServiceImpl) {
+        this.productServiceImpl = productServiceImpl;
+    }
+
+    @PostMapping
+    public ProductCreatedResponse create(@RequestBody @Valid ProductForCreateDto productDto) { //Valid yazınca ProductForCreateDto içindeki validasyonlar çalışır. Eğer validasyonlardan biri başarısız olursa, Spring otomatik olarak 400 Bad Request hatası döndürür ve hangi validasyonun başarısız olduğunu belirtir.
+        return this.productServiceImpl.create(productDto);
+    }
 
 
       

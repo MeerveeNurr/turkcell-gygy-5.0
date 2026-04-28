@@ -1,15 +1,13 @@
 package com.turkcell.spring_starter.repository;
-
-import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.turkcell.spring_starter.entity.Category;
 
 @Repository
-public class CategoryRepository extends JpaRepository<Category,UUID> {
-
+public interface CategoryRepository extends JpaRepository<Category, UUID>
+{
+    
 }

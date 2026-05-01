@@ -1,6 +1,7 @@
 package com.turkcell.spring_starter.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.turkcell.spring_starter.dto.CreateCategoryRequest;
@@ -38,6 +39,9 @@ public class CategoriesController {
         return categoryServiceImpl.getAll();
     }
 
+    
+
+    //Ödev kısmı
     @GetMapping("/{id}")
     public ListCategoryResponse getById(@PathVariable UUID id) {
         return categoryServiceImpl.getById(id);
@@ -52,4 +56,8 @@ public class CategoriesController {
     public void delete(@PathVariable UUID id) {
         categoryServiceImpl.delete(id);
     }
-}
+    @GetMapping("search")
+        public List<ListCategoryResponse> getMethodName(@RequestParam String query) {
+            return categoryServiceImpl.search(query);
+        }
+    }

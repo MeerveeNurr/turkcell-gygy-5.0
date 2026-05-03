@@ -1,5 +1,5 @@
 package com.turkcell.library_cqrs.core.mediator.cqrs;
 
-public interface Query {
+public interface Query<R> {
 
 }

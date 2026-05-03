@@ -20,14 +20,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleException(Exception exception) {
-        return new ErrorResponse("Internal Server Error", "Exception", "An unexpected error occurred: " + exception.getMessage());
+        return new ErrorResponse("Sunucu Hatası", "Exception", "Beklenmedik bir hata oluştu: " + exception.getMessage());
     }
 
     @ExceptionHandler({RuntimeException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST) // api isteği atarken hata mesajı geldiğinde köşede 200 ok yerine burada belirttiğimiz 
     // hata kodunu verir.
     public ErrorResponse handleRuntimeException(RuntimeException exception){
-        return new ErrorResponse("Runtime Error", "RuntimeException", exception.getMessage());
+        return new ErrorResponse("Sistem Hatası", "RuntimeException", exception.getMessage());
     }
 
     @ExceptionHandler({BusinessException.class})

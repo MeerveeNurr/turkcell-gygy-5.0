@@ -42,10 +42,10 @@ public class CategoriesController {
     
 
     //Ödev kısmı
-    @GetMapping("/{id}")
+   /*  @GetMapping("/{id}")
     public ListCategoryResponse getById(@PathVariable UUID id) {
         return categoryServiceImpl.getById(id);
-    }
+    } */
 
     @PutMapping("/{id}")
     public CreatedCategoryResponse update(@PathVariable UUID id, @RequestBody CreateCategoryRequest request) {

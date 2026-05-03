@@ -1,4 +1,4 @@
-package com.turkcell.spring_starter.controller;
+/* package com.turkcell.spring_starter.controller;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.turkcell.spring_starter.entity.Product;
 import com.turkcell.spring_starter.service.ProductServiceImpl;
+// bu class ödev classı
 
 @RestController
 @RequestMapping("/api/products")
@@ -42,4 +43,4 @@ public class ProductController {
     public void delete(@PathVariable UUID id){
         productService.delete(id);
     }
-}
+} */

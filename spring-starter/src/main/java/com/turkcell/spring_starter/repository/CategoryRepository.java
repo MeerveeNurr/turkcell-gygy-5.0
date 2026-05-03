@@ -19,6 +19,8 @@ public interface CategoryRepository extends JpaRepository<Category, UUID>
     // 3. Named Queries
     Set<Category> findByNameLike(String name);
 
+}
+
         /*@Query Notasyonu
 Spring Data JPA'nın otomatik oluşturduğu metodlar (findByName gibi) bazen karmaşık sorgular için yetersiz kalır. @Query kullanarak SQL'e çok benzeyen ama doğrudan tablolarla değil, Java sınıflarınla (Entity) konuşan özel sorgular yazabilirsin.*/
 
@@ -27,6 +29,3 @@ Spring Data JPA'nın otomatik oluşturduğu metodlar (findByName gibi) bazen kar
 Örnek: Eğer parametren "telefon" ise; "akıllı telefon", "ev telefonu" sonuçlarını getirir, ama "telefon kılıfı" sonucunu getirmez.
 
 :query (Named Parameter): Bu bir değişkendir. Metodun içindeki @Param("query") String query parametresiyle eşleşir. */
-
-
-}

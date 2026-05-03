@@ -3,15 +3,12 @@ package com.turkcell.spring_starter.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.turkcell.spring_starter.dto.CreateCategoryRequest;
 import com.turkcell.spring_starter.dto.CreatedCategoryResponse;
 import com.turkcell.spring_starter.dto.ListCategoryResponse;
 import com.turkcell.spring_starter.entity.Category;
-import com.turkcell.spring_starter.entity.Product;
 import com.turkcell.spring_starter.repository.CategoryRepository;
 
 import jakarta.persistence.EntityManager;
@@ -20,24 +17,34 @@ import jakarta.persistence.EntityManager;
 public class CategoryServiceImpl {
     private final CategoryRepository categoryRepository;
     private final EntityManager entityManager;
+   //  private final ProductServiceImpl productServiceImpl; //servisler arasında sonsuz döngü oluşur, birinin üretilmesi lazım kidiğeri de onun üretilmesine baplı çalışsın.
 
     public CategoryServiceImpl(CategoryRepository categoryRepository,EntityManager entityManager) {
         this.categoryRepository = categoryRepository;
         this.entityManager = entityManager;
     }
 
-   public CreatedCategoryResponse create(CreateCategoryRequest request) {
-    Category category = new Category();
-    category.setName(request.getName()); // request üzerinden ismi alıyoruz
+     public Category getById(UUID id)
+    {
+        return categoryRepository.findById(id).orElse(null);
+    }
+ 
+    public CreatedCategoryResponse create(CreateCategoryRequest createCategoryRequest) {
+        // Veritabanında insert-update çalıştır.
+        // entity id'e sahipse update
+        // entity id'si null ise insert
 
-    category = this.categoryRepository.save(category);
+        Category category = new Category();
+        category.setName(createCategoryRequest.getName());
 
-    CreatedCategoryResponse response = new CreatedCategoryResponse();
-    response.setId(category.getId());
-    response.setName(category.getName());
+        category = this.categoryRepository.save(category); // ekledikten sonraki halini al
 
-    return response;
-}
+        CreatedCategoryResponse response = new CreatedCategoryResponse();
+        response.setId(category.getId());
+        response.setName(category.getName());
+
+        return response;
+    } 
 
     public List<ListCategoryResponse> getAll(){
         List<Category> categories = this.categoryRepository.findAll();
@@ -83,7 +90,7 @@ public class CategoryServiceImpl {
       }
       
      //ödev kısmı
-    public ListCategoryResponse getById(UUID id){
+   /* public ListCategoryResponse getById(UUID id){
         Category category = this.categoryRepository.findById(id).orElseThrow();
 
         ListCategoryResponse response = new ListCategoryResponse();
@@ -91,7 +98,7 @@ public class CategoryServiceImpl {
         response.setName(category.getName());
 
         return response;
-    }
+    } */ 
 
     public CreatedCategoryResponse update(UUID id, CreateCategoryRequest request){
         Category category = this.categoryRepository.findById(id).orElseThrow();

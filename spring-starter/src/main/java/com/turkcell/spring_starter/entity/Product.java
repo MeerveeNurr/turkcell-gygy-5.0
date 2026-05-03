@@ -2,9 +2,7 @@ package com.turkcell.spring_starter.entity;
 
 import java.util.Set;
 import java.util.UUID;
-import java.util.List;
 import org.hibernate.annotations.UuidGenerator;
-import com.turkcell.spring_starter.entity.Category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

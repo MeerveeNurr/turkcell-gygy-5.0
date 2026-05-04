@@ -34,6 +34,7 @@ public class LibraryMediator implements Mediator {
 
    //Hangi Command/Query - Hangi Handler
   private <T> T resolveHandler(Class<?> requestType, Class<T> handlerInterface) {
+
     Class<?> returnType = ResolvableType.forClass(requestType)
                                         .as(Command.class)
                                         .getGeneric(0)

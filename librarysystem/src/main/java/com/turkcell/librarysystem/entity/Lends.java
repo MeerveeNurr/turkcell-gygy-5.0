@@ -19,8 +19,11 @@ public class Lends {
 
      @Column(name="lendBookName",nullable=false,length=100)
     private String lendBookName;
-
+    @Column(name="dateOfLend",nullable = false)
+    
     private LocalDate dateOfLend;
+    
+    @Column(name="endOfLend",nullable = true)
     private LocalDate endOfLend;
 
     @ManyToOne

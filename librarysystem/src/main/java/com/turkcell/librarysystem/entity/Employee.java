@@ -22,9 +22,9 @@ public class Employee {
 
     @Column(name="name",nullable=false,length=100)
     private String name;
-     @Column(name="surname",nullable=false,length=100)
+    @Column(name="surname",nullable=false,length=100)
     private String surname;
-
+    @Column(name="termOfOffice",nullable = false)
     private String termOfOffice;
 
     public Employee() {}

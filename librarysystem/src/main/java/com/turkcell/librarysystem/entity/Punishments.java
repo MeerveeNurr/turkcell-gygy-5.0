@@ -19,7 +19,7 @@ public class Punishments {
 
      @Column(name="nameOfPenalizedMember",nullable=false,length=100)
     private String nameOfPenalizedMember;
-
+    @Column(name="isPunismentPay")
     private boolean isPunishmentPay;
 
     @ManyToOne

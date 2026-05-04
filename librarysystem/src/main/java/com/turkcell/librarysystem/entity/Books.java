@@ -16,17 +16,17 @@ import jakarta.persistence.Table;
 public class Books {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     @UuidGenerator
     @Column(name="id")
     private UUID id;
 
-    @Column(name="bookName",nullable=false,length=100)
+    @Column(name="book_name",nullable=false,length=100)
     private String bookName;
-     @Column(name="authorName",nullable=false,length=100)
+    @Column(name="author_name",nullable=false,length=100)
     private String author;
+    @Column(name="numberOfPages")
     private int numberOfPages;
+    @Column(name = "is_Available", columnDefinition = "boolean default true")
     private boolean isAvailable;
 
     public Books() {}

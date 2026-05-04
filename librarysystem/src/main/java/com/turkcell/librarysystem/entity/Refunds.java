@@ -20,7 +20,10 @@ public class Refunds {
      @Column(name="returnedBookName",nullable=false,length=100)
     private String returnedBookName;
 
+    @Column(name="dueDay")
     private int dueDay;
+    
+    @Column(name="delayTime",nullable = true)
     private int delayTime;
 
     @ManyToOne

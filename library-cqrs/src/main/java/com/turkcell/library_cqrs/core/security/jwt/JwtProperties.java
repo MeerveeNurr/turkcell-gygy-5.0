@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class JwtProperties {
     private String secret;
     private long expirationInSeconds = 360000;
-    private String issuer = "spring-cqrs";
+    private String issuer = "library-cqrs";
 
 
     public String getSecret() {

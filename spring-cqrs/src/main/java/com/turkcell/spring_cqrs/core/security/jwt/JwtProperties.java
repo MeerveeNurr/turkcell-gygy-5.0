@@ -3,9 +3,10 @@ package com.turkcell.spring_cqrs.core.security.jwt;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix="security.jwt")
+// JWT: JSON Web Token, kullanıcı kimlik doğrulaması ve yetkilendirme için kullanılan bir standarttır.
 public class JwtProperties {
     private String secret;
-    private long expirationInSeconds = 360000;
+    private long expirationInSeconds = 360000; //normalde bu bilgiler application.yaml dosyasından okunur, kodun içine yazılmaz.
     private String issuer = "spring-cqrs";
 
 

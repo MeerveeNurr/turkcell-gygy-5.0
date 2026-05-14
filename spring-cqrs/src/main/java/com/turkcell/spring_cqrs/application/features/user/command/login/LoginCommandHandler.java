@@ -41,7 +41,10 @@ public class LoginCommandHandler
             );
         }
 
-        String jwt = jwtService.generate(user.getId(), user.getEmail(),List.of(Role.ADMIN));
+      // List.of(Role.ADMIN) yerine kullanıcının kendi rolünü gönderiyoruz
+     String jwt = jwtService.generate(user.getId(), user.getEmail(), List.of(user.getRole()));
+     //Aşağıdaki kod hardcoded bir admin
+     //String jwt = jwtService.generate(user.getId(), user.getEmail(), List.of(Role.ADMIN));
 
         return new LoginResponse(jwt);
     }

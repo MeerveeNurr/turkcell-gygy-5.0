@@ -30,11 +30,11 @@ public class RegisterCommandHandler implements CommandHandler<RegisterCommand,Re
          User user = new User();
         user.setEmail(command.email());
         user.setPassword(passwordEncoder.encode(command.password()));
-
+        user.setRole(command.role());
         userRepository.save(user);
         
         // todo: Move to mapper
-        return new RegisterResponse(user.getId(), user.getEmail());
+        return new RegisterResponse(user.getId(), user.getEmail(),user.getRole().name());
     }
 
 }

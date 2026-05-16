@@ -1,4 +1,4 @@
-package com.turkcell.library_cqrs.application.features.category.create;
+package com.turkcell.library_cqrs.application.features.category.command.create;
 
 import com.turkcell.library_cqrs.core.mediator.cqrs.Command;
 import java.util.UUID;

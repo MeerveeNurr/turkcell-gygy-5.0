@@ -1,10 +1,13 @@
 package com.turkcell.library_cqrs.domain;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
+
+import com.turkcell.library_cqrs.core.security.authorization.Role;
 
 @Entity
 @Table(name = "members")
@@ -28,6 +31,20 @@ public class Members {
     private LocalDate dateOfMembership;
     @Column(name = "is_active", columnDefinition = "boolean default true")
     private boolean isActive;
+
+    @Enumerated(EnumType.STRING)
+    // üye mi görevli mi? 
+
+    @Column(name="role",nullable=false)
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public Members() {}
 

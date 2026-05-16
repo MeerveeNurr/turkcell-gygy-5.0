@@ -3,6 +3,8 @@ package com.turkcell.library_cqrs.web.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.turkcell.library_cqrs.application.features.user.command.login.LoginCommand;
+import com.turkcell.library_cqrs.application.features.user.command.login.LoginResponse;
 import com.turkcell.library_cqrs.application.features.user.command.register.RegisterCommand;
 import com.turkcell.library_cqrs.application.features.user.command.register.RegisterResponse;
 import com.turkcell.library_cqrs.core.mediator.Mediator;
@@ -26,6 +28,9 @@ public class AuthController {
     public RegisterResponse register(@RequestBody @Valid RegisterCommand command) {
        return mediator.send(command);
     }
-    
+    @PostMapping("login")
+    public LoginResponse login(@RequestBody @Valid LoginCommand command){
+        return mediator.send(command);
+    }
 
 }

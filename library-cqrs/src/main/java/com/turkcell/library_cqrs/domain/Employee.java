@@ -3,8 +3,12 @@ import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
+import com.turkcell.library_cqrs.core.security.authorization.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -35,6 +39,18 @@ public class Employee {
 
     @Column(nullable = false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="role",nullable=false)
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public UUID getId() {
         return id;

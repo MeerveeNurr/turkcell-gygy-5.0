@@ -2,8 +2,8 @@ package com.turkcell.library_cqrs.application.features.category.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.turkcell.library_cqrs.application.features.category.create.CreateCategoryCommand;
-import com.turkcell.library_cqrs.application.features.category.create.CreatedCategoryResponse;
+import com.turkcell.library_cqrs.application.features.category.command.create.CreateCategoryCommand;
+import com.turkcell.library_cqrs.application.features.category.command.create.CreatedCategoryResponse;
 import com.turkcell.library_cqrs.domain.Books;
 
 @Component
